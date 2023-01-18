@@ -1,7 +1,12 @@
 import React from 'react'
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-const Contact = ({isContactHidden,setIsContactHidden, enableBodyScroll}) => {
+
+// const serviceId = process.env.SERVICE_ID;
+// const templateId = process.env.TEMPLATE_ID;
+
+export const Contact = ({isContactHidden,setIsContactHidden, enableBodyScroll}) => {
+  console
   const [ message, setMessage ] = useState(false);
   const form = useRef();
   const sendEmail = (e)=>{
@@ -9,10 +14,10 @@ const Contact = ({isContactHidden,setIsContactHidden, enableBodyScroll}) => {
     e.preventDefault();
 
     emailjs.sendForm(
-      'service_2u5udh2',
-     'template_cra0afs',
+      "service_2u5udh2",
+      "template_cra0afs",
       form.current,
-     '6oB41hvHrB4JvpvUK')
+      "6oB41hvHrB4JvpvUK")
       .then((result) => {
           console.log(result.text);
       }, (error) => {
