@@ -2,43 +2,46 @@ import Layout from '../components/layout'
 import { FaGithub,FaLinkedin,FaTelegram,FaInstagram,FaTwitterSquare } from 'react-icons/fa'
 import { GiPunch } from 'react-icons/gi'
 import Head from 'next/head'
-const Links = () => {
+import { getDatabase } from "../../lib/notion";
+export const databaseId = process.env.NOTION_DATABASE_ID;
+const Links = ({posts}) => {
+  // console.log(posts);
   return (
-    <Layout>
+    <Layout posts={posts}>
 <Head>
         <title>My Links</title>
         <meta name="description" content="My links" />
 </Head>
     <main className= 'mt-12 max-w-3xl w-full px-4 flex flex-col gap-4 my-0 mx-auto'>
-      <a className='hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between' href="https://github.com/Ulugbek4real" target="_blank">
-        <span className=" platform-name">GITHUB</span>
+      <a className='hover:border-link-border dark:hover:border-yellow-100 hover:bg-link-bg  w-full h-12  border text-black border-black dark:border-neutral-500  dark:hover:bg-link-bg-dark  rounded-3xl flex items-center px-4 justify-between' href="https://github.com/Ulugbek4real" target="_blank">
+        <span className=" platform-name dark:text-neutral-100">GITHUB</span>
         <span className=" text-gray-500 text-xs middle-span">My open-source projects</span>
-        <FaGithub className=" text-2xl platform-icon"/>
+        <FaGithub className=" dark:text-neutral-100 text-2xl platform-icon"/>
       </a>
-      <a className='hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between' href="https://www.linkedin.com/in/ulugbek4real/" target="_blank">
-        <span className="platform-name">LINKEDIN</span>
+      <a className='dark:hover:border-yellow-100 dark:border-neutral-500  dark:hover:bg-link-bg-dark  hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between' href="https://www.linkedin.com/in/ulugbek4real/" target="_blank">
+        <span className="platform-name dark:text-neutral-100 ">LINKEDIN</span>
         <span className=" text-gray-500 text-xs middle-span">My professional profile</span>
-    <FaLinkedin className="text-2xl platform-icon"/>
+    <FaLinkedin className=" dark:text-neutral-100 text-2xl platform-icon"/>
       </a>
-      <a className='hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between' href="https://www.instagram.com/ulugbek4real/" target="_blank">
-        <span className="platform-name">INSTAGRAM</span>
+      <a className='dark:hover:border-yellow-100 dark:border-neutral-500  dark:hover:bg-link-bg-dark hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between' href="https://www.instagram.com/ulugbek4real/" target="_blank">
+        <span className="platform-name dark:text-neutral-100 ">INSTAGRAM</span>
         <span className=" text-gray-500 text-xs middle-span">@ulugbek4real</span>
-        <FaInstagram className="text-2xl platform-icon" />
+        <FaInstagram className=" dark:text-neutral-100 text-2xl platform-icon" />
       </a>
-      <a className='hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between' href="https://www.instagram.com/bjj_ground/" target="_blank">
-        <span className="platform-name">JIU-JITSU</span>
+      <a className='dark:hover:border-yellow-100 dark:border-neutral-500  dark:hover:bg-link-bg-dark hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between' href="https://www.instagram.com/bjj_ground/" target="_blank">
+        <span className="platform-name dark:text-neutral-100 ">JIU-JITSU</span>
         <span className=" text-gray-500 text-xs middle-span">Jiu-jitsu Ground</span>
-        <GiPunch className="text-2xl platform-icon" />
+        <GiPunch className=" dark:text-neutral-100 text-2xl platform-icon" />
       </a>
-      <a  className='hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between' href="https://twitter.com/ulugbek4real" target="_blank">
-        <span className="platform-name">TWITTER</span>
+      <a  className='dark:hover:border-yellow-100 dark:border-neutral-500  dark:hover:bg-link-bg-dark hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between' href="https://twitter.com/ulugbek4real" target="_blank">
+        <span className="platform-name dark:text-neutral-100 ">TWITTER</span>
         <span className=" text-gray-500 text-xs middle-span">@ulugbek4real</span>
-        <FaTwitterSquare className="text-2xl platform-icon" />
+        <FaTwitterSquare className=" dark:text-neutral-100 text-2xl platform-icon" />
       </a>
-      <a  className='hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between' href="https://t.me/ulugbek4real" target="_blank">
-        <span className="platform-name">TELEGRAM</span>
+      <a  className='dark:hover:border-yellow-100 dark:border-neutral-500  dark:hover:bg-link-bg-dark hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between' href="https://t.me/ulugbek4real" target="_blank">
+        <span className="platform-name dark:text-neutral-100 ">TELEGRAM</span>
         <span className=" text-gray-500 text-xs middle-span">@ulugbek4real</span>
-        <FaTelegram className="text-2xl platform-icon" />
+        <FaTelegram className=" dark:text-neutral-100 text-2xl platform-icon" />
         
       </a>
     </main>
@@ -47,3 +50,14 @@ const Links = () => {
 }
 
 export default Links
+
+
+export const getStaticProps = async () => {
+  const database = await getDatabase(databaseId);
+  return {
+    props: {
+      posts: database,
+    },
+    revalidate: 1,
+  };
+};

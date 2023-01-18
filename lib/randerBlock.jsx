@@ -100,7 +100,7 @@ export const renderBlock = (block) => {
         return <blockquote className="border-l-4 border-stone-600 pl-6 my-8 text-xl text-stone-500 italic" key={id}>{value.rich_text[0].plain_text}</blockquote>;
       case "code":
         return (
-          <pre className=" bg-code-bg py-1 px-2  my-5 leading-loose overflow-auto rounded-md ">
+          <pre className=" bg-code-bg dark:text-dark1 py-1 px-2  my-5 leading-loose overflow-auto rounded-md ">
             <code className="flex flex-wrap font-mono p-5 "  key={id}>
               {value.rich_text[0].plain_text}
             </code>
@@ -158,7 +158,7 @@ export const renderBlock = (block) => {
       return (
         <span key={i}
       
-          className=  {`${bold ? "font-bold" : ""} ${code ? "bg-code-bg font-mono text-sm  py-1 px-1.5 rounded-md" : ""} ${italic ? "italic" : ""} ${strikethrough ? "line-through" : ""} ${underline ? "underline" : ""}`}
+          className=  {`${bold ? "font-bold" : ""} ${code ? "bg-code-bg dark:text-dark1 font-mono text-sm  py-1 px-1.5 rounded-md" : ""} ${italic ? "italic" : ""} ${strikethrough ? "line-through" : ""} ${underline ? "underline" : ""}`}
           style={color !== "default" ? { color } : {}}
         >
           {text?.link ? <a href={text.link.url} target="_blank">{text.content}</a> : text?.content}
