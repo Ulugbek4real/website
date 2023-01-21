@@ -10,7 +10,10 @@ import Layout from "../components/layout";
 
 
 export default function Post({ page, blocks }) {
-
+  const src =
+  page.cover.type === "external" ?  page.cover.external.url :  page.cover.file.url;
+// const caption =  page.cover.caption ?  page.cover.caption[0]?.plain_text : "";
+  console.log(page);
   if (!page || !blocks) {
     return <div />;
   }
@@ -18,12 +21,14 @@ export default function Post({ page, blocks }) {
     <>
     <Layout >
       <Head>
-        <meta charset="utf-8" />
-        <meta name="author" content="Ulugbek Nurmatov" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{page.properties.Name.title[0].plain_text}</title>
+        <meta name="author" content="Ulugbek Nurmatov" />
+        <meta property="og:site_name" content="Ulugbek Nurmatov"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
         <meta name="description" content={page.properties.Description.rich_text[0].plain_text} />
-        <meta property="og:image" content={page.cover.external["url"]} />
+        <meta property="og:image" content={src} />
+        
         <link  rel="icon" href="/logoPng.png" />
         <meta name="theme-color" content="#000000" />
       </Head>
