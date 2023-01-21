@@ -13,8 +13,15 @@ export default function Home({ posts }) {
       {/* <Contact /> */}
     <Layout posts ={posts}>
       <Head>
-        <title>Ulugbek Nurmatov</title>
-        <link  rel="icon" href="/logoPng.png" />
+      <meta charset="utf-8" />
+      <meta name="author" content="Ulugbek Nurmatov" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Ulugbek Nurmatov</title>
+      <meta   name="description" content="I am Ulugbek Nurmatov, a 23-year-old Software Engineer from Uzbekistan, currently living in Seoul, South Korea." />
+      <meta name="og:image" content="https://ulugbek4real.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FmyProf.66dc75d2.jpg&w=2048&q=75" />
+     <link  rel="icon" href="/logoPng.png" />
+     <meta name="theme-color" content="#000000" />
+       
       </Head>
 
       <main className=" max-w-3xl mt-12  mx-auto px-5">

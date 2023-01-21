@@ -77,7 +77,7 @@ export const renderBlock = (block) => {
           const Vcaption = value.caption ? value.caption[0]?.plain_text : "";
         return (
           <figure className="my-8"> 
-          <iframe  className="max-w-2xl w-full  sm:h-96 h-52 " src={videoSrc} allowFullScreen></iframe>
+          <iframe className="max-w-2xl w-full  sm:h-96 h-52 " src={videoSrc} allowFullScreen></iframe>
           {Vcaption && <figcaption className="text-gray-500">{Vcaption}</figcaption>}
            </figure>
         );

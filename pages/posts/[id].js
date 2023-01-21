@@ -18,9 +18,14 @@ export default function Post({ page, blocks }) {
     <>
     <Layout >
       <Head>
+        <meta charset="utf-8" />
+        <meta name="author" content="Ulugbek Nurmatov" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{page.properties.Name.title[0].plain_text}</title>
-        <meta   name="description" content={page.properties.Description.rich_text[0].plain_text} />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content={page.properties.Description.rich_text[0].plain_text} />
+        <meta property="og:image" content={page.cover.external["url"]} />
+        <link  rel="icon" href="/logoPng.png" />
+        <meta name="theme-color" content="#000000" />
       </Head>
       <header className=" max-w-3xl mx-auto px-5 tracking-wide mt-12">
       <div className=" flex justify-between items-center topbar-header">
