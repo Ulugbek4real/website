@@ -27,7 +27,7 @@ export default function Post({ page, blocks }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         <meta name="description" content={page.properties.Description.rich_text[0].plain_text} />
-        <meta property="og:image" content={src} />
+        <meta property="og:image" content={page.cover.type === "external" ?  page.cover?.external.url :  page.cover?.file.url} />
         
         <link  rel="icon" href="/logoPng.png" />
         <meta name="theme-color" content="#000000" />
