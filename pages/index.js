@@ -23,7 +23,7 @@ export default function Home({ posts }) {
      <meta name="theme-color" content="#000000" />
       </Head>
 
-      <main className=" max-w-3xl mt-12  mx-auto px-5">
+      <main className="  max-w-3xl mt-12  mx-auto px-5">
         <ol className="">
           {posts.map((post) => {
             const src =

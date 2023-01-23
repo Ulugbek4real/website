@@ -5,7 +5,7 @@ import Topbar from "./topbar"
 
 export default function Layout({ children, posts }) {
   return (
-    <div className="flex justify-between max-w-[1500px] mx-auto">
+    <div className="flex justify-between max-w-[1500px] mx-auto ">
       <Sidebar  className="" />
       <div className=" flex-1">
       <Topbar /> 

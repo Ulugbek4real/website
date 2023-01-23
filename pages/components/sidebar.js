@@ -35,12 +35,18 @@ const currentTheme = theme === "system" ? systemTheme : theme;
 }
   }
 
-
+useEffect(() => {
+  if (!isContactHidden) {
+    disableBodyScroll(document);
+  }else {
+    enableBodyScroll(document);
+  }
+}, [isContactHidden]);
 
 const router = useRouter();
   const handleClick  = () => {
 setIsContactHidden(!isContactHidden)
-disableBodyScroll(document);
+// disableBodyScroll(document);
   }
  
   return (
@@ -62,7 +68,9 @@ disableBodyScroll(document);
         <Image className="w-8 h-8 object-cover rounded-full" src={myProf} alt="profilePic" />
         </div>
     </div>
-    <Contact isContactHidden={isContactHidden} setIsContactHidden={setIsContactHidden} enableBodyScroll ={enableBodyScroll}/>
+    <Contact isContactHidden={isContactHidden} setIsContactHidden={setIsContactHidden} 
+    // enableBodyScroll ={enableBodyScroll}  
+    />
     </>
 
   )
