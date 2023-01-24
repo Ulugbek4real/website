@@ -22,7 +22,7 @@ export default function Post({ page, blocks }) {
       <Head>
         <title>{page.properties.Name.title[0].plain_text}</title>
         <meta name="author" content="Ulugbek Nurmatov" />
-        <meta property="og:site_name" content="Ulugbek Nurmatov"/>
+        <meta property="og:site_name" content="Ulugbek's website"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         <meta name="description" content={page.properties.Description.rich_text[0].plain_text} />

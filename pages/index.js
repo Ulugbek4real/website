@@ -12,10 +12,8 @@ export default function Home({ posts }) {
     <Layout posts ={posts}>
       <Head>
       <title>Ulugbek Nurmatov</title>
-      <meta name="author" content="Ulugbek Nurmatov" />
-      <meta property="og:site_name" content="Ulugbek's personal website"/>
+      <meta property="og:site_name" content="Ulugbek's website"/>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-     
       <meta name="description" content="I am Ulugbek Nurmatov, a 23-year-old Software Engineer from Uzbekistan, currently living in Seoul, South Korea." />
       <meta name="og:image" content="https://ulugbek4real.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FmyProf.66dc75d2.jpg&w=2048&q=75" />
       
