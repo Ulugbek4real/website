@@ -65,7 +65,7 @@ setIsContactHidden(!isContactHidden)
          
         </div>
         <div className="hidden lg:inline">
-        <Image className="w-8 h-8 object-cover rounded-full" src={myProf} alt="profilePic" />
+        <Image className="w-8 h-8 object-cover rounded-full" src={myProf} alt="Ulugbek Nurmatov' profile photo" />
         </div>
     </div>
     <Contact isContactHidden={isContactHidden} setIsContactHidden={setIsContactHidden} 

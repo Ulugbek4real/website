@@ -22,7 +22,7 @@ export default function Sidedesk ({posts}){
       </div>
       <div className="w-4/5 mt-10 mx-auto mb-4 flex flex-col gap-4">
         <div className="box-profile flex gap-2 ">
-            <Image className=" w-16 h-16 object-cover rounded-full" src={myProf} alt="profilePic" />
+            <Image className=" w-16 h-16 object-cover rounded-full" src={myProf} alt="Ulugbek Nurmatov profile image" />
           <div className="box-profile-info flex flex-col justify-center ml-3">
             <span className="box-profile-info-name font-semibold">Ulugbek Nurmatov</span>
             <span className="box-profile-info-status text-sm text-stone-500 dark:text-neutral-400">Software Engineer</span>

@@ -34,7 +34,7 @@ export default function Post({ page, blocks }) {
       <header className=" max-w-3xl mx-auto px-5 tracking-wide mt-12">
       <div className=" flex justify-between items-center topbar-header">
         <div className=" flex items-center gap-4  header-name">
-        <Image src={myProfile} alt="profilePhoto" className="w-12 h-12 object-cover rounded-full"/>
+        <Image src={myProfile} alt="Ulugbek Nurmatov profile image" className="w-12 h-12 object-cover rounded-full"/>
         <div  className="flex flex-col">
         <span className=" text-md font-semibold">Ulugbek Nurmatov</span>
         <div className="text-sm font-normal text-stone-500">
