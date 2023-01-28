@@ -5,6 +5,7 @@ import {MdAlternateEmail} from "react-icons/md";
 import {HiOutlineMoon,HiOutlineSun} from "react-icons/hi";
 import {IoMdHome} from "react-icons/io";
 import {MdOutlineHome} from "react-icons/md";
+import {TbBrandTelegram} from "react-icons/tb";
 import {HiSearch} from "react-icons/hi";
 import  Link from "next/link"
 import Image from "next/image";
@@ -59,7 +60,7 @@ setIsContactHidden(!isContactHidden)
           <Link className=" w-10 h-10 flex justify-center items-center text-2xl hover:bg-stone-100 dark:hover:bg-neutral-800 active:bg-stone-200 dark:active:bg-neutral-600 rounded-full text-black dark:text-neutral-100" href="/">{router.pathname === "/" ? <IoMdHome className="text-black dark:text-neutral-100"/> : <MdOutlineHome />}
          
           </Link>
-          <div className=" cursor-pointer w-10 h-10 flex justify-center items-center text-2xl hover:bg-stone-100 dark:hover:bg-neutral-800 active:bg-stone-200 dark:active:bg-neutral-600 rounded-full text-stone-500  dark:text-neutral-100"><HiSearch /></div>
+          <a href="https://t.me/ulugbekChannel" target="_blank"  className=" cursor-pointer w-10 h-10 flex justify-center items-center text-2xl hover:bg-stone-100 dark:hover:bg-neutral-800 active:bg-stone-200 dark:active:bg-neutral-600 rounded-full text-stone-500  dark:text-neutral-100"><TbBrandTelegram /></a>
           <div onClick={handleClick} className=" cursor-pointer w-10 h-10 flex justify-center items-center text-2xl hover:bg-stone-100 dark:hover:bg-neutral-800 active:bg-stone-200 dark:active:bg-neutral-600 rounded-full text-stone-500 dark:text-neutral-100 "><MdAlternateEmail /></div>
           {changeTheme("icon")}
          

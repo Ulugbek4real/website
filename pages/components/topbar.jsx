@@ -15,7 +15,7 @@ const Topbar = () => {
     <div className={`${onPostPage ? "hidden " : ""}" flex flex-col gap-4 sm:gap-8 w-full pt-6 sm:pt-10 px-5 my-0 mx-auto max-w-3xl topbar"`}>
       <div className=" flex justify-between items-center topbar-header">
         <div className=" flex items-center gap-2  header-name">
-        {onLinksPage ? <HiLink className="bg-neutral-200 hover:bg-neutral-100 dark:bg-neutral-600 dark:hover:bg-neutral-700 hover:transition-all  h-7 w-7 rounded-full p-1 "/>:  <Image src={myProfile} alt="profilePhoto"  className=" w-12 h-12 object-cover rounded-full lg:hidden"/>}
+        {onLinksPage ? <HiLink className="bg-neutral-200 hover:bg-neutral-100 dark:bg-neutral-600 dark:hover:bg-neutral-700 hover:transition-all  h-7 w-7 rounded-full p-1 "/>:  <Image src={myProfile} alt="Ulugbek Nurmatov profile image"  className=" w-12 h-12 object-cover rounded-full lg:hidden"/>}
         <h1 className=" text-2xl sm:text-3xl font-bold">{onLinksPage ? "Ulugbek's Links" : "Ulugbek Nurmatov"}</h1>
         </div>
         <BiDotsHorizontalRounded className=" text-2xl text-gray-500 nav-icon"/>
