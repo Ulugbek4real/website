@@ -41,12 +41,12 @@ export default function Home({ posts }) {
               <div className=" flex-1 flex gap-1 flex-col">
               <p className="text-stone-500 dark:text-neutral-400 text-xs sm:text-sm">{date}</p>
              
-              <h3 className=" tracking-wide text-black text-lg sm:text-2xl font-semibold">
+              <h3 className=" tracking-wide text-black text-base sm:text-2xl font-semibold">
                   <Link className="text-gray-800 dark:text-neutral-100 dark:hover:text-amber-100 hover:text-violet-700" href={`/posts/${post.id}`}>
                     <Text text={post.properties.Name.title} />
                   </Link>
                 </h3>
-                <Link href={`/posts/${post.id}`} className="text-inherit dark:text-neutral-300"><p className=" tracking-wide hidden sm:inline  font-light">{post.properties.Description.rich_text[0].plain_text}</p> </Link>
+                <Link href={`/posts/${post.id}`} className="text-inherit dark:text-neutral-300"><p className=" sm:tracking-wider tracking-normal text-sm sm:text-base text-ellipsis break-words overflow-hidden max-h-6 sm:max-h-12  leading-6 font-light">{post.properties.Description.rich_text[0].plain_text}</p> </Link>
                <div className="mt-0 sm:mt-5">
                {post.properties.Tags.multi_select.map((tag)=>{
                 return <span className="bg-neutral-100 dark:bg-neutral-800 py-1 px-2 sm:px-3 mr-4 rounded-xl text-stone-500 text-xs sm:text-sm font-normal" key={tag.id} >{tag.name}</span>

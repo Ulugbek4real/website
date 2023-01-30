@@ -6,7 +6,6 @@ import {HiOutlineMoon,HiOutlineSun} from "react-icons/hi";
 import {IoMdHome} from "react-icons/io";
 import {MdOutlineHome} from "react-icons/md";
 import {TbBrandTelegram} from "react-icons/tb";
-import {HiSearch} from "react-icons/hi";
 import  Link from "next/link"
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -45,6 +44,7 @@ useEffect(() => {
 }, [isContactHidden]);
 
 const router = useRouter();
+// console.log(router.pathname)
   const handleClick  = () => {
 setIsContactHidden(!isContactHidden)
 // disableBodyScroll(document);

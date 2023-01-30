@@ -1,21 +1,21 @@
 import Head from "next/head";
 import { getDatabase, getPage, getBlocks } from "../../lib/notion";
-import Link from "next/link";
 import { databaseId } from "../index.js";
-import {BiDotsHorizontalRounded} from "react-icons/bi"
+import {BiLinkAlt} from "react-icons/bi"
 import Image from "next/image";
 import myProfile from "../../public/myProf.jpg"
 import { renderBlock, Text } from "../../lib/randerBlock";
 import Layout from "../components/layout";
+import { useRouter } from "next/router";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useState } from "react";
 
 
 export default function Post({ page, blocks }) {
-  // const src =
-  // page.cover.type === "external" ?  page.cover.external.url :  page.cover.file.url;
-// const caption =  page.cover.caption ?  page.cover.caption[0]?.plain_text : "";
-  if (!page || !blocks) {
-    return <div />;
-  }
+  const [copied, setCopied] = useState(false);
+  const router = useRouter();
+  if (!page || !blocks) <div />;
+  
   return (
     <>
     <Layout >
@@ -32,7 +32,7 @@ export default function Post({ page, blocks }) {
         <meta name="theme-color" content="#000000" />
       </Head>
       <header className=" max-w-3xl mx-auto px-5 tracking-wide mt-12">
-      <div className=" flex justify-between items-center topbar-header">
+      <div className=" relative flex justify-between items-center topbar-header">
         <div className=" flex items-center gap-4  header-name">
         <Image src={myProfile} alt="Ulugbek Nurmatov profile image" className="w-12 h-12 object-cover rounded-full"/>
         <div  className="flex flex-col">
@@ -52,7 +52,22 @@ export default function Post({ page, blocks }) {
         </div>
         </div>
         </div>
-        <BiDotsHorizontalRounded className=" text-2xl text-gray-500 nav-icon"/>
+        {/* <BiDotsHorizontalRounded className=" text-2xl text-gray-500 nav-icon"/> */}
+        <CopyToClipboard
+  text={`https://ulugbek4real.com${router.asPath}`}
+  onCopy={() => {
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  }}>
+     <div className=" cursor-pointer w-10 h-10 flex justify-center items-center  hover:bg-stone-100 dark:hover:bg-neutral-800 active:bg-stone-200 dark:active:bg-neutral-600 rounded-full text-stone-500  dark:text-neutral-100 text-2xl" ><BiLinkAlt /></div>
+  </CopyToClipboard>
+  {copied && 
+  <div className="absolute -top-6 right-0 bg-gray-100 text-gray-500 text-xs font-semibold px-2 py-1 rounded-md shadow-md">
+    Copied link!
+  </div>
+    }
       </div>
       </header>
 

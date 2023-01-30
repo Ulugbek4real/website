@@ -1,6 +1,5 @@
 import Link from "next/link";
-
-
+import Image from "next/image";
 
 export const renderBlock = (block) => {
     const { type, id } = block;
@@ -114,7 +113,7 @@ export const renderBlock = (block) => {
         const caption_file = value.caption ? value.caption[0]?.plain_text : "";
         return (
           <figure className="">
-            <div className=" px-2 no-underline hover:bg-gray-100">
+            <div className=" px-2 no-underline hover:bg-gray-100 dark:hover:bg-neutral-500">
               📎{" "}
               <Link className="text-inherit " href={src_file} passHref>
                 {lastElementInArray.split("?")[0]}
