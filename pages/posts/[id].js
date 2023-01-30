@@ -14,8 +14,11 @@ import { useState } from "react";
 export default function Post({ page, blocks }) {
   const [copied, setCopied] = useState(false);
   const router = useRouter();
-  if (!page || !blocks) <div />;
-  
+  if (!page || !blocks || router.isFallback) {
+    return(
+      <div />
+    )
+  }
   return (
     <>
     <Layout >
