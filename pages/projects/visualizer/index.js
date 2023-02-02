@@ -3,12 +3,15 @@ import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Node from "./Node";
 
-import { dijkstra, getNodesInShortestPathOrder } from "./dijkstra";
+import {
+  dijkstra,
+  getNodesInShortestPathOrder,
+} from "../../../components/visualizer/dijkstra";
 import {
   getNewGridWithWallToggled,
   getInitialGrid,
   animateGivenNode,
-} from "./gridFunctions";
+} from "../../../components/visualizer/gridFunctions";
 
 const PathfindingVisualizer = () => {
   const [grid, setGrid] = useState([]);

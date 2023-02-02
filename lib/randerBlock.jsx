@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export const renderBlock = (block) => {
   const { type, id } = block;

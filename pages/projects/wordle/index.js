@@ -1,8 +1,8 @@
-import Guess from "./Guess";
-import Keyboard from "./Keyboard";
-import Modal from "./Modal";
+import Guess from "../../../components/wordle/Guess";
+import Keyboard from "../../../components/wordle/Keyboard";
+import Modal from "../../../components/wordle/Modal";
 import { useEffect, useState, useRef } from "react";
-import words from "./words.json";
+import words from "../../../components/wordle/words";
 import Link from "next/link";
 import { MdOutlineAutorenew } from "react-icons/md";
 import { ImExit } from "react-icons/im";
