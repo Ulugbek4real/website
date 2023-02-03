@@ -31,11 +31,11 @@ const Keyboard = ({ allGuesses, exactGuesses, inexactGuesses, handleKup }) => {
                   }}
                   className={`${
                     key === "Enter"
-                      ? "w-12 text-xs sm:w-16"
+                      ? "w-12 2xl:w-20 text-xs sm:w-16"
                       : key === "Backspace"
-                      ? "w-12 text-xs sm:w-16"
-                      : "w-8 sm:w-10"
-                  } h-14  mb-1 flex items-center justify-center rounded-md uppercase text-sm font-bold ${bgColor}`}
+                      ? "w-12 2xl:w-20 text-xs sm:w-16"
+                      : "w-8 2xl:w-14 sm:w-10"
+                  } h-14 2xl:h-16  mb-1 flex items-center justify-center rounded-md uppercase text-sm font-bold ${bgColor}`}
                   key={j}
                 >
                   {key === "Backspace" ? (

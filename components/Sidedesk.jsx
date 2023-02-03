@@ -2,17 +2,15 @@ import myProf from "../public/myProf.jpg";
 import {
   FaGithub,
   FaLinkedin,
-  FaTelegram,
   FaInstagram,
   FaTwitterSquare,
 } from "react-icons/fa";
 import Image from "next/image";
 import { TbBrandTelegram } from "react-icons/tb";
-export const databaseId = process.env.NOTION_DATABASE_ID;
 
-export default function Sidedesk({ posts }) {
+export default function Sidedesk() {
   return (
-    <div className="hidden w-80 xl:w-96 sticky  h-full  border-l border-stone-200  dark:border-neutral-700 lg:flex flex-col top-0 right-0">
+    <div className="hidden w-80 xl:w-96 sticky  h-screen  border-l border-stone-200  dark:border-neutral-700 lg:flex flex-col top-0 right-0">
       <div className="w-4/5 mt-10 mx-auto mb-4 flex flex-col gap-4">
         <a
           href="mailto: ulugbek4real.w@gmail.com"
@@ -78,7 +76,7 @@ export default function Sidedesk({ posts }) {
             <div className="media-box flex flex-col gap-0">
               <span>GitHub</span>
               <span className="followers text-xs font-medium text-stone-400">
-                15 followers
+                repositories
               </span>
             </div>
           </div>
@@ -96,7 +94,7 @@ export default function Sidedesk({ posts }) {
             <div className="media-box flex flex-col gap-0">
               <span>LinkedIn</span>
               <span className="followers text-xs font-medium text-stone-400">
-                10 followers
+                connections
               </span>
             </div>
           </div>
@@ -114,7 +112,7 @@ export default function Sidedesk({ posts }) {
             <div className="media-box flex flex-col gap-0">
               <span>Instagram</span>
               <span className="followers text-xs font-medium text-stone-400">
-                100 followers
+                friends
               </span>
             </div>
           </div>
@@ -132,7 +130,7 @@ export default function Sidedesk({ posts }) {
             <div className="media-box flex flex-col gap-0">
               <span>Twitter</span>
               <span className="followers text-xs font-medium text-stone-400">
-                12 followers
+                friends
               </span>
             </div>
           </div>
@@ -149,12 +147,12 @@ export default function Sidedesk({ posts }) {
   );
 }
 
-export const getStaticProps = async () => {
-  const database = await getDatabase(databaseId);
-  return {
-    props: {
-      posts: database,
-    },
-    revalidate: 1,
-  };
-};
+// export const getStaticProps = async () => {
+//   const database = await getDatabase(databaseId);
+//   return {
+//     props: {
+//       posts: database,
+//     },
+//     revalidate: 1,
+//   };
+// };

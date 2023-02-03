@@ -7,32 +7,32 @@ export const renderBlock = (block) => {
   switch (type) {
     case "paragraph":
       return (
-        <p className="text-lg tracking-wide">
+        <p className="text-lg tracking-wide mt-6">
           <Text text={value.rich_text} />
         </p>
       );
     case "heading_1":
       return (
-        <h1 className="text-3xl my-4 tracking-wide">
+        <h1 className="sm:text-3xl text-2xl my-7 tracking-wide">
           <Text text={value.rich_text} />
         </h1>
       );
     case "heading_2":
       return (
-        <h2 className="text-2xl font-bold my-3 tracking-wide">
+        <h2 className="sm:text-2xl text-xl font-bold my-3 tracking-wide">
           <Text text={value.rich_text} />
         </h2>
       );
     case "heading_3":
       return (
-        <h3 className="text-xl font-bold mt-3 tracking-wide">
+        <h3 className="sm:text-xl text-lg font-bold mt-3 tracking-wide">
           <Text text={value.rich_text} />
         </h3>
       );
     case "bulleted_list_item":
     case "numbered_list_item":
       return (
-        <li>
+        <li className="ml-6 text-base py-px">
           <Text text={value.rich_text} />
           {!!value.children && renderNestedList(block)}
         </li>
@@ -105,7 +105,7 @@ export const renderBlock = (block) => {
         </div>
       );
     case "divider":
-      return <hr className="my-8" key={id} />;
+      return <hr className="my-6" key={id} />;
     case "quote":
       return (
         <blockquote
@@ -185,7 +185,11 @@ export const Text = ({ text }) => {
         style={color !== "default" ? { color } : {}}
       >
         {text?.link ? (
-          <a href={text.link.url} target="_blank">
+          <a
+            className="text-inherit underline font-medium"
+            href={text.link.url}
+            target="_blank"
+          >
             {text.content}
           </a>
         ) : (
@@ -204,7 +208,15 @@ const renderNestedList = (block) => {
   const isNumberedList = value.children[0].type === "numbered_list_item";
 
   if (isNumberedList) {
-    return <ol>{value.children.map((block) => renderBlock(block))}</ol>;
+    return (
+      <ol className="py-4">
+        {value.children.map((block) => renderBlock(block))}
+      </ol>
+    );
   }
-  return <ul>{value.children.map((block) => renderBlock(block))}</ul>;
+  return (
+    <ul className="py-4">
+      {value.children.map((block) => renderBlock(block))}
+    </ul>
+  );
 };

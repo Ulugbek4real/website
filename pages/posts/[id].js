@@ -11,6 +11,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useState } from "react";
 
 export default function Post({ page, blocks }) {
+  // console.log(page);
   const [copied, setCopied] = useState(false);
   const router = useRouter();
   if (!page || !blocks || router.isFallback) {
@@ -22,7 +23,7 @@ export default function Post({ page, blocks }) {
         <Head>
           <title>{page.properties.Name.title[0].plain_text}</title>
           <meta name="author" content="Ulugbek Nurmatov" />
-          <meta property="og:site_name" content="Ulugbek's website" />
+          <meta property="og:site_name" content="Ulugbek's blog" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
 
           <meta
@@ -114,7 +115,11 @@ export default function Post({ page, blocks }) {
 export const getStaticPaths = async () => {
   const database = await getDatabase(databaseId);
   return {
-    paths: database.map((page) => ({ params: { id: page.id } })),
+    paths: database.map((page) => ({
+      params: {
+        id: page.id,
+      },
+    })),
     fallback: true,
   };
 };

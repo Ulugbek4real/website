@@ -14,10 +14,9 @@ const Node = ({
 }) => {
   return (
     <div
-      id={`node-${row}-${col}`}
       className={` ${
-        isWall ? "node-wall bg-sky-900 dark:bg-green-800" : " "
-      } ${className}  h-6 w-6 outline outline-[0.25px] outline-cyan-200 dark:outline-neutral-700 dark:text-neutral-300 flex justify-center items-center cursor-pointer text-xl`}
+        isWall ? " bg-sky-900 dark:bg-green-800" : " "
+      } ${className} h-5 w-5  xl:h-6 xl:w-6 2xl:h-7 2xl:w-7  outline outline-[0.25px] outline-cyan-200 dark:outline-neutral-700 dark:text-neutral-300 flex justify-center items-center cursor-pointer text-xl`}
       onMouseDown={() => onMouseDown(row, col)}
       onMouseEnter={() => onMouseEnter(row, col)}
       onMouseUp={() => onMouseUp()}

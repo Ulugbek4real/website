@@ -75,7 +75,7 @@ const Modal = ({
           className="bg-neutral-200 dark:bg-neutral-500 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 rounded-md px-4 py-2 font-bold uppercase text-sm"
           onClick={init}
         >
-          Try again
+          New Game
         </button>
       </div>
     </>

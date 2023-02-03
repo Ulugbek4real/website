@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 export const databaseId = process.env.NOTION_DATABASE_ID;
 
 export default function Home({ posts }) {
+  // console.log(posts);
   return (
     <div>
       {/* <Contact /> */}

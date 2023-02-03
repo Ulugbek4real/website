@@ -117,7 +117,7 @@ export default function index() {
     };
   }, [guesses, currentGuess]);
   return (
-    <div className="  flex flex-col justify-center gap-8 items-center">
+    <div className=" h-screen  flex flex-col justify-center gap-8 items-center">
       <div className=" flex gap-1 absolute top-1 right-2 z-50">
         <button
           ref={buttonRef}

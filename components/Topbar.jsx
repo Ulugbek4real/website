@@ -35,7 +35,7 @@ const Topbar = () => {
             {onLinksPage
               ? "Ulugbek's Links"
               : onProjectsPage
-              ? "Ulugbek's projects"
+              ? "Featured Projects"
               : "Ulugbek Nurmatov"}
           </h1>
         </div>

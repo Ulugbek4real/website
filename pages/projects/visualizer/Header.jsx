@@ -9,9 +9,9 @@ const Header = ({
   isRunning,
 }) => {
   return (
-    <div className="header text-white p-3 text-center mb-8 border-b dark:border-neutral-600 bg-sky-900 dark:bg-dark1 ">
+    <div className=" text-white p-3 text-center mb-8 border-b dark:border-neutral-600 bg-sky-900 dark:bg-dark1 ">
       <h1 className="text-3xl font-semibold ">Pathfinding Visualizer</h1>
-      <div className="actions flex items-center justify-center">
+      <div className="flex items-center justify-center">
         <button
           className={`${
             isRunning

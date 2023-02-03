@@ -153,7 +153,7 @@ const PathfindingVisualizer = () => {
   };
   return (
     <>
-      <div className="hidden xl:inline">
+      <div className="hidden lg:inline ">
         <Header
           visualizeDijkstra={visualizeDijkstra}
           isRunning={isRunning}
@@ -161,12 +161,12 @@ const PathfindingVisualizer = () => {
           grid={grid}
           getInitialGrid={() => getInitialGrid(startNode, finishNode)}
         />
-        <div className="wasgrid flex flex-col justify-center items-center">
+        <div className=" flex flex-col justify-center items-center">
           {grid.map((row, rowIdx) => {
             return (
               <div
                 key={rowIdx}
-                className="wasrow flex flex-wrap flex-row justify-center items-center"
+                className=" flex flex-wrap flex-row justify-center items-center"
               >
                 {row.map((node, nodeIdx) => {
                   const { row, col, isFinish, isStart, isWall, className } =
@@ -195,7 +195,7 @@ const PathfindingVisualizer = () => {
           })}
         </div>
       </div>
-      <div className="xl:hidden flex items-center justify-center flex-col text-center">
+      <div className="lg:hidden flex items-center justify-center flex-col text-center">
         <h1 className="text-2xl">This is a Desktop application.</h1>
         <p>Please open on a larger screen.</p>
         <h3 className="text-xl font-bold">Thank you!</h3>
