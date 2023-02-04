@@ -7,6 +7,7 @@ import {
   dijkstra,
   getNodesInShortestPathOrder,
 } from "../../../components/visualizer/dijkstra";
+import { dfs } from "../../../components/visualizer/dfs";
 import {
   getNewGridWithWallToggled,
   getInitialGrid,
@@ -87,7 +88,7 @@ const PathfindingVisualizer = () => {
     });
     setGrid(newGrid);
   };
-  const animateDijkstra = (visitedNodesInOrder, nodesInShortestPathOrder) => {
+  const animateAlgorithm = (visitedNodesInOrder, nodesInShortestPathOrder) => {
     for (let i = 0; i <= visitedNodesInOrder.length; i++) {
       if (i === visitedNodesInOrder.length) {
         setTimeout(() => {
@@ -125,7 +126,7 @@ const PathfindingVisualizer = () => {
     }
   };
 
-  const visualizeDijkstra = () => {
+  const visualize = (algorithm) => {
     if (
       grid[startNode.row][startNode.col].isWall ||
       grid[finishNode.row][finishNode.col].isWall
@@ -142,20 +143,21 @@ const PathfindingVisualizer = () => {
     setGrid(newGrid);
     const latestStartNode = grid[startNode.row][startNode.col];
     const latestFinishNode = grid[finishNode.row][finishNode.col];
-    const visitedNodesInOrder = dijkstra(
-      grid,
-      latestStartNode,
-      latestFinishNode
-    );
+    const visitedNodesInOrder =
+      algorithm === "dijkstra"
+        ? dijkstra(grid, latestStartNode, latestFinishNode)
+        : algorithm === "dfs"
+        ? dfs(grid, latestStartNode, latestFinishNode)
+        : [];
     const nodesInShortestPathOrder =
       getNodesInShortestPathOrder(latestFinishNode);
-    animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
+    animateAlgorithm(visitedNodesInOrder, nodesInShortestPathOrder);
   };
   return (
     <>
       <div className="hidden lg:inline ">
         <Header
-          visualizeDijkstra={visualizeDijkstra}
+          visualize={visualize}
           isRunning={isRunning}
           setGrid={setGrid}
           grid={grid}

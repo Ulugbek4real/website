@@ -37,7 +37,7 @@ const index = () => {
               </p>
               <Link
                 className=" w-fit text-inherit mb-4 border-b-2 border-black  dark:border-neutral-600"
-                href="/posts/a3bb7d99-94b8-4e21-a2f2-d01162694849"
+                href="/posts/c2c1dddb-6d52-4e0b-b7ed-b795d8cfe8e0"
               >
                 Read case study
               </Link>
@@ -105,7 +105,7 @@ const index = () => {
             <div className=" flex-1 flex flex-col gap-1 border dark:border-neutral-600 rounded-md p-4 sm:p-8">
               <h3 className=" text-lg">My Website</h3>
               <p className="text-neutral-500 tracking-wide">
-                Utilizing React for the front-end and Notion's API for data
+                Utilizing NEXT.js for the front-end and Notion's API for data
                 management, the website received high praise for its smooth
                 functionality and visually appealing design, with users noting
                 the clever use of Notion as a back-end and the similarities in
