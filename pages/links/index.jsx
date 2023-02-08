@@ -1,4 +1,5 @@
-import Layout from "../../components/Layout";
+import Layout from "../../components/layout/Layout";
+import Link from "../../components/links/Link";
 import {
   FaGithub,
   FaLinkedin,
@@ -7,13 +8,12 @@ import {
   FaTwitterSquare,
 } from "react-icons/fa";
 import { GiPunch } from "react-icons/gi";
+
 import Head from "next/head";
-import { getDatabase } from "../../lib/notion";
-export const databaseId = process.env.NOTION_DATABASE_ID;
-const Links = ({ posts }) => {
-  // console.log(posts);
+
+const Links = () => {
   return (
-    <Layout posts={posts}>
+    <Layout>
       <Head>
         <title>Ulugbek's Links</title>
         <meta property="og:site_name" content="Ulugbek's website" />
@@ -29,90 +29,47 @@ const Links = ({ posts }) => {
         <link rel="icon" href="/logoPng.png" />
         <meta name="theme-color" content="#000000" />
       </Head>
+
       <main className="mt-12 max-w-3xl w-full px-4 flex flex-col gap-4 my-0 mx-auto">
-        <a
-          className="hover:border-link-border dark:hover:border-yellow-100 hover:bg-link-bg  w-full h-12  border text-black border-black dark:border-neutral-500  dark:hover:bg-link-bg-dark  rounded-3xl flex items-center px-4 justify-between"
-          href="https://github.com/Ulugbek4real"
-          target="_blank"
-        >
-          <span className=" platform-name dark:text-neutral-100">GITHUB</span>
-          <span className=" text-gray-500 text-xs middle-span">
-            My open-source projects
-          </span>
-          <FaGithub className=" dark:text-neutral-100 text-2xl platform-icon" />
-        </a>
-        <a
-          className="dark:hover:border-yellow-100 dark:border-neutral-500  dark:hover:bg-link-bg-dark  hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between"
-          href="https://www.linkedin.com/in/ulugbek4real/"
-          target="_blank"
-        >
-          <span className="platform-name dark:text-neutral-100 ">LINKEDIN</span>
-          <span className=" text-gray-500 text-xs middle-span">
-            My professional profile
-          </span>
-          <FaLinkedin className=" dark:text-neutral-100 text-2xl platform-icon" />
-        </a>
-        <a
-          className="dark:hover:border-yellow-100 dark:border-neutral-500  dark:hover:bg-link-bg-dark hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between"
-          href="https://www.instagram.com/ulugbek4real/"
-          target="_blank"
-        >
-          <span className="platform-name dark:text-neutral-100 ">
-            INSTAGRAM
-          </span>
-          <span className=" text-gray-500 text-xs middle-span">
-            @ulugbek4real
-          </span>
-          <FaInstagram className=" dark:text-neutral-100 text-2xl platform-icon" />
-        </a>
-        <a
-          className="dark:hover:border-yellow-100 dark:border-neutral-500  dark:hover:bg-link-bg-dark hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between"
-          href="https://www.instagram.com/bjj_ground/"
-          target="_blank"
-        >
-          <span className="platform-name dark:text-neutral-100 ">
-            JIU-JITSU
-          </span>
-          <span className=" text-gray-500 text-xs middle-span">
-            Jiu-jitsu Ground
-          </span>
-          <GiPunch className=" dark:text-neutral-100 text-2xl platform-icon" />
-        </a>
-        <a
-          className="dark:hover:border-yellow-100 dark:border-neutral-500  dark:hover:bg-link-bg-dark hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between"
-          href="https://twitter.com/ulugbek4real"
-          target="_blank"
-        >
-          <span className="platform-name dark:text-neutral-100 ">TWITTER</span>
-          <span className=" text-gray-500 text-xs middle-span">
-            @ulugbek4real
-          </span>
-          <FaTwitterSquare className=" dark:text-neutral-100 text-2xl platform-icon" />
-        </a>
-        <a
-          className="dark:hover:border-yellow-100 dark:border-neutral-500  dark:hover:bg-link-bg-dark hover:border-link-border hover:bg-link-bg w-full h-12  border text-black border-black rounded-3xl flex items-center px-4 justify-between"
-          href="https://t.me/ulugbek4real"
-          target="_blank"
-        >
-          <span className="platform-name dark:text-neutral-100 ">TELEGRAM</span>
-          <span className=" text-gray-500 text-xs middle-span">
-            @ulugbek4real
-          </span>
-          <FaTelegram className=" dark:text-neutral-100 text-2xl platform-icon" />
-        </a>
+        <Link
+          name="GITHUB"
+          url="https://github.com/Ulugbek4real"
+          text="My open-source projects"
+          icon=<FaGithub className=" dark:text-neutral-100 text-2xl platform-icon" />
+        />
+        <Link
+          name="LINKEDIN"
+          url="https://www.linkedin.com/in/ulugbek4real/"
+          text="My professional profile"
+          icon=<FaLinkedin className=" dark:text-neutral-100 text-2xl platform-icon" />
+        />
+        <Link
+          name="INSTAGRAM"
+          url="https://www.instagram.com/ulugbek4real/"
+          text="@ulugbek4real"
+          icon=<FaInstagram className=" dark:text-neutral-100 text-2xl platform-icon" />
+        />
+        <Link
+          name="JIU-JITSU"
+          url="https://www.instagram.com/bjj_ground/"
+          text="Jiu-jitsu Ground"
+          icon=<GiPunch className=" dark:text-neutral-100 text-2xl platform-icon" />
+        />
+        <Link
+          name="TWITTER"
+          url="https://twitter.com/ulugbek4real"
+          text="@ulugbek4real"
+          icon=<FaTwitterSquare className=" dark:text-neutral-100 text-2xl platform-icon" />
+        />
+        <Link
+          name="TELEGRAM"
+          url="https://t.me/ulugbek4real"
+          text="@ulugbek4real"
+          icon=<FaTelegram className=" dark:text-neutral-100 text-2xl platform-icon" />
+        />
       </main>
     </Layout>
   );
 };
 
 export default Links;
-
-export const getStaticProps = async () => {
-  const database = await getDatabase(databaseId);
-  return {
-    props: {
-      posts: database,
-    },
-    revalidate: 1,
-  };
-};

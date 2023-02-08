@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 
-import Header from "./Header";
-import Node from "./Node";
+import Header from "../../../components/projects/visualizer/Header";
+import Node from "../../../components/projects/visualizer/Node";
 
 import {
   dijkstra,
   getNodesInShortestPathOrder,
-} from "../../../components/visualizer/dijkstra";
-import { dfs } from "../../../components/visualizer/dfs";
+} from "../../../components/projects/visualizer/dijkstra";
+import { dfs } from "../../../components/projects/visualizer/dfs";
 import {
   getNewGridWithWallToggled,
   getInitialGrid,
   animateGivenNode,
-} from "../../../components/visualizer/gridFunctions";
+} from "../../../components/projects/visualizer/gridFunctions";
 
 const PathfindingVisualizer = () => {
   const [grid, setGrid] = useState([]);

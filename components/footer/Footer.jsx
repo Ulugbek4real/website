@@ -1,4 +1,5 @@
-const Footer = () => {
+import Post from "../post/Post";
+const Footer = ({ posts }) => {
   return (
     <div className="w-full flex justify-center pt-16 pb-32 bg-stone-50 dark:bg-dark2 mt-16">
       <div className="footer-center max-w-3xl px-5 flex flex-col gap-2 w-full">
@@ -19,6 +20,7 @@ const Footer = () => {
           date on new posts and more. P.S. No spam, unsubscribe any time.
         </p>
         <div className="br w-full bg-stone-200 dark:bg-neutral-700 my-6 h-px "></div>
+        {posts && posts.map((post) => <Post key={post.id} post={post} />)}
         <div className="newsletter flex items-center justify-between">
           <span className=" text-stone-400 text-sm font-normal leading-6 tracking-normal ">
             Inspired by Medium.com

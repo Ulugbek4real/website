@@ -1,16 +1,24 @@
-import Guess from "../../../components/wordle/Guess";
-import Keyboard from "../../../components/wordle/Keyboard";
-import Modal from "../../../components/wordle/Modal";
+import Guess from "../../../components/projects/wordle/Guess";
+import Keyboard from "../../../components/projects/wordle/Keyboard";
+import Modal from "../../../components/projects/wordle/Modal";
+import words from "../../../components/projects/wordle/words";
 import { useEffect, useState, useRef } from "react";
-import words from "../../../components/wordle/words";
 import Link from "next/link";
 import { MdOutlineAutorenew } from "react-icons/md";
 import { ImExit } from "react-icons/im";
+import { useReducer } from "react";
+import { Reducer } from "../../../components/projects/wordle/Reducer";
+
+const INITIAL_STATE = {
+  word: "",
+  guesses: ["", "", "", "", "", ""],
+  currentGuess: 0,
+  won: false,
+  lost: false,
+};
 
 export default function index() {
-  const [word, setWord] = useState("");
-  const [guesses, setGuesses] = useState([]);
-  const [currentGuess, setCurrentGuess] = useState(0);
+  const [state, dispatch] = useReducer(Reducer, INITIAL_STATE);
   const [showModal, setShowModal] = useState(true);
   const [stats, setStats] = useState({
     played: 0,
@@ -34,72 +42,55 @@ export default function index() {
 
   const init = () => {
     const word = words[Math.floor(Math.random() * words.length)];
-    setWord(word);
-    setGuesses(new Array(6).fill(""));
-    setCurrentGuess(0);
-    setShowModal(true);
+    dispatch({ type: "INIT", payload: word });
   };
 
-  const youWon = () => {
-    return word === guesses[currentGuess - 1];
-  };
-  const youLost = () => {
-    return currentGuess >= 6;
-  };
-
-  const handleKup = (e) => {
-    if (youWon() || youLost()) return;
-
-    if (currentGuess >= 6) return;
+  const handleClick = (e) => {
+    if (state.currentGuess === 6 || state.won || state.lost) return;
     const { key } = e;
+    if (
+      key === "Enter" &&
+      state.currentGuess < 6 &&
+      words.includes(state.guesses[state.currentGuess])
+    ) {
+      dispatch({ type: "ENTER" });
+    }
     if (key === "Backspace") {
-      setGuesses((prev) => {
-        const newGuesses = [...prev];
-        newGuesses[currentGuess] = newGuesses[currentGuess].slice(0, -1);
-        return newGuesses;
-      });
+      dispatch({ type: "BACKSPACE" });
     }
-    if (key === "Enter" && words.includes(guesses[currentGuess])) {
-      setCurrentGuess((prev) => prev + 1);
-    }
-    if (key.match(/^[A-z]$/) && guesses[currentGuess].length < word.length) {
-      setGuesses((prev) => {
-        const newGuesses = [...prev];
-        newGuesses[currentGuess] += key;
-        return newGuesses;
-      });
+    if (key.match(/^[A-z]$/) && state.guesses[state.currentGuess].length < 5) {
+      dispatch({ type: "KEY", payload: key });
     }
   };
 
   const allGuesses = () => {
-    return guesses.slice(0, currentGuess).join("").split("");
+    return state.guesses.slice(0, state.currentGuess).join("").split("");
   };
   const exactGuesses = () => {
-    return word.split("").filter((letter, i) => {
-      return guesses
-        .slice(0, currentGuess)
+    return state.word.split("").filter((letter, i) => {
+      return state.guesses
+        .slice(0, state.currentGuess)
         .map((word) => word[i])
         .includes(letter);
     });
   };
   const inexactGuesses = () => {
-    return word
+    return state.word
       .split("")
-      .filter((letter) => allGuesses().includes(letter))
-      .filter((letter) => !exactGuesses().includes(letter));
+      .filter((letter) => allGuesses().includes(letter));
   };
 
   const updateStats = () => {
-    if (youWon() || youLost()) {
+    if (state.won || state.lost) {
       setStats((prev) => {
         return {
           ...prev,
           played: prev.played + 1,
-          win: prev.win + (youWon() ? 1 : 0),
-          currentStreak: youWon() ? prev.currentStreak + 1 : 0,
+          win: prev.win + (state.won ? 1 : 0),
+          currentStreak: state.won ? prev.currentStreak + 1 : 0,
           maxStreak: Math.max(
             prev.maxStreak,
-            prev.currentStreak + (youWon() ? 1 : 0)
+            prev.currentStreak + (state.won ? 1 : 0)
           ),
         };
       });
@@ -111,11 +102,11 @@ export default function index() {
   }, []);
   useEffect(() => {
     updateStats();
-    window.addEventListener("keyup", handleKup);
+    window.addEventListener("keyup", handleClick);
     return () => {
-      window.removeEventListener("keyup", handleKup);
+      window.removeEventListener("keyup", handleClick);
     };
-  }, [guesses, currentGuess]);
+  }, [state.guesses, state.currentGuess]);
   return (
     <div className=" h-screen  flex flex-col justify-center gap-8 items-center">
       <div className=" flex gap-1 absolute top-1 right-2 z-50">
@@ -135,7 +126,7 @@ export default function index() {
         >
           <ImExit />
         </Link>
-        {(youLost() || youWon()) && (
+        {(state.won || state.lost) && (
           <button
             onClick={() => {
               setShowModal(!showModal);
@@ -151,25 +142,25 @@ export default function index() {
         {new Array(6).fill(0).map((_, i) => {
           return (
             <Guess
-              word={word}
-              guess={guesses[i]}
-              isGuessed={i < currentGuess}
+              word={state.word}
+              guess={state.guesses[i]}
+              isGuessed={i < state.currentGuess}
               key={i}
             />
           );
         })}
       </div>
 
-      <h1 className="hidden"> {word}</h1>
-      {(youWon() || youLost()) && (
+      <h1 className="hidden"> {state.word}</h1>
+      {(state.won || state.lost) && (
         <Modal
           showModal={showModal}
           setShowModal={setShowModal}
-          currentGuess={currentGuess}
-          word={word}
+          currentGuess={state.currentGuess}
+          word={state.word}
           init={init}
-          youWon={youWon}
-          youLost={youLost}
+          youWon={state.won}
+          youLost={state.lost}
           stats={stats}
         />
       )}
@@ -177,7 +168,7 @@ export default function index() {
         allGuesses={allGuesses}
         inexactGuesses={inexactGuesses}
         exactGuesses={exactGuesses}
-        handleKup={handleKup}
+        handleKup={handleClick}
       />
     </div>
   );

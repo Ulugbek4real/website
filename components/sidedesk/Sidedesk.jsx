@@ -1,4 +1,5 @@
-import myProf from "../public/myProf.jpg";
+import myProf from "../../public/myProf.jpg";
+import Link from "next/link";
 import {
   FaGithub,
   FaLinkedin,
@@ -7,8 +8,9 @@ import {
 } from "react-icons/fa";
 import Image from "next/image";
 import { TbBrandTelegram } from "react-icons/tb";
+import Story from "./Story";
 
-export default function Sidedesk() {
+export default function Sidedesk({ posts }) {
   return (
     <div className="hidden w-80 xl:w-96 sticky  h-screen  border-l border-stone-200  dark:border-neutral-700 lg:flex flex-col top-0 right-0">
       <div className="w-4/5 mt-10 mx-auto mb-4 flex flex-col gap-4">
@@ -27,46 +29,39 @@ export default function Sidedesk() {
           <TbBrandTelegram className="text-lg text-neutral-600  dark:text-white" />
         </a>
       </div>
-      <div className="w-4/5 mt-10 mx-auto mb-4 flex flex-col gap-4">
-        <div className="box-profile flex gap-2 ">
-          <Image
-            className=" w-16 h-16 object-cover rounded-full"
-            src={myProf}
-            alt="Ulugbek Nurmatov profile image"
-          />
-          <div className="box-profile-info flex flex-col justify-center ml-3">
-            <span className="box-profile-info-name font-semibold">
-              Ulugbek Nurmatov
-            </span>
-            <span className="box-profile-info-status text-sm text-stone-500 dark:text-neutral-400">
-              Software Engineer
-            </span>
+      {!posts && (
+        <div className="w-4/5 mt-10 mx-auto mb-4 flex flex-col gap-4">
+          <div className="box-profile flex gap-2 ">
+            <Image
+              className=" w-16 h-16 object-cover rounded-full"
+              src={myProf}
+              alt="Ulugbek Nurmatov profile image"
+            />
+            <div className="box-profile-info flex flex-col justify-center ml-3">
+              <span className="box-profile-info-name font-semibold">
+                Ulugbek Nurmatov
+              </span>
+              <span className="box-profile-info-status text-sm text-stone-500 dark:text-neutral-400">
+                Software Engineer
+              </span>
+            </div>
+          </div>
+          <div className="box-information">
+            <p className="box-text text-sm text-stone-500 dark:text-neutral-400">
+              I'm a full-stack Software Engineer based in Seoul, South Korea.
+              Here you'll find my personal blog posts and case studies.
+            </p>
           </div>
         </div>
-        <div className="box-information">
-          <p className="box-text text-sm text-stone-500 dark:text-neutral-400">
-            I'm a full-stack Software Engineer based in Seoul, South Korea. Here
-            you'll find my personal blog posts and case studies.
-          </p>
+      )}
+      {posts && (
+        <div className="w-4/5 mt-10 mx-auto mb-4 flex flex-col gap-4">
+          <span className="">More stories</span>
+          {posts.map((post) => {
+            return <Story key={post.id} post={post} />;
+          })}
         </div>
-      </div>
-      {/* <div className="w-4/5 mt-10 mx-auto mb-4 flex flex-col gap-4">
-      <span className="">Pinned stories</span>
-      <div className="flex gap-4">
-        <div className="flex flex-col flex-1">
-           <div className="flex items-center gap-1"> <BsFillPinFill className="text-sm text-stone-500" /> <span className="text-sm text-stone-500"> Pinned • {posts[0].properties.Duration.rich_text[0].plain_text}</span></div>
-             <span className="text-md font-bold capitalize">{posts[0].properties.Name.title[0].plain_text}</span>
-        </div>
-             <img className=" w-14 h-14 object-cover " src={posts[0].cover.external.url} alt="post"></img>
-      </div>
-      <div className="flex gap-4">
-        <div className="flex flex-col flex-1">
-        <div className="flex items-center gap-1"> <BsFillPinFill className="text-sm text-stone-500" /> <span className="text-sm text-stone-500"> Pinned • {posts[1].properties.Duration.rich_text[0].plain_text}</span></div>
-             <span className="text-md font-bold capitalize">{posts[1].properties.Name.title[0].plain_text}</span>
-        </div>
-             <img className=" w-14 h-14 object-cover " src={posts[1].cover.external.url} alt="post"></img>
-      </div>
-      </div> */}
+      )}
       <div className="w-4/5 mt-10 mx-auto mb-4 flex flex-col gap-4">
         <span className="">Social Media</span>
 
@@ -146,13 +141,3 @@ export default function Sidedesk() {
     </div>
   );
 }
-
-// export const getStaticProps = async () => {
-//   const database = await getDatabase(databaseId);
-//   return {
-//     props: {
-//       posts: database,
-//     },
-//     revalidate: 1,
-//   };
-// };

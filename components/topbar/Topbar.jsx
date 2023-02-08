@@ -3,7 +3,7 @@ import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { HiLink } from "react-icons/hi";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import myProfile from "../public/myProf.jpg";
+import myProfile from "../../public/myProf.jpg";
 import { FaSlackHash } from "react-icons/fa";
 
 const Topbar = () => {

@@ -48,7 +48,7 @@ const Modal = ({
             </div>
           </div>
         </div>
-        {youWon() ? (
+        {youWon ? (
           <div className="bg-green-500 text-center rounded-md text-white py-2">
             <h2 className="uppercase font-bold text-sm  ">
               {" "}
@@ -59,7 +59,7 @@ const Modal = ({
               {currentGuess} guesses
             </p>
           </div>
-        ) : youLost() ? (
+        ) : youLost ? (
           <div className="bg-red-900 text-center rounded-md text-white py-2">
             <h2 className="uppercase font-bold text-sm ">
               You can always try again{" "}

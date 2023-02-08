@@ -1,4 +1,4 @@
-import { generateRandomMaze } from "../../../components/visualizer/gridFunctions";
+import { generateRandomMaze } from "./gridFunctions";
 import Link from "next/link";
 import { ImExit } from "react-icons/im";
 const Header = ({ visualize, setGrid, grid, getInitialGrid, isRunning }) => {

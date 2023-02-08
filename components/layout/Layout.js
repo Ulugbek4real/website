@@ -1,7 +1,7 @@
-import Footer from "./Footer";
-import Sidebar from "./Sidebar";
-import Sidedesk from "./Sidedesk";
-import Topbar from "./Topbar";
+import Footer from "../footer/Footer";
+import Sidebar from "../sidebar/Sidebar";
+import Sidedesk from "../sidedesk/Sidedesk";
+import Topbar from "../topbar/Topbar";
 
 export default function Layout({ children, posts }) {
   return (
@@ -10,7 +10,7 @@ export default function Layout({ children, posts }) {
       <div className=" flex-1">
         <Topbar />
         <main>{children}</main>
-        <Footer />
+        <Footer posts={posts} />
       </div>
       <Sidedesk posts={posts} className="" />
     </div>

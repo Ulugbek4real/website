@@ -5,12 +5,12 @@ import { BiLinkAlt } from "react-icons/bi";
 import Image from "next/image";
 import myProfile from "../../public/myProf.jpg";
 import { renderBlock, Text } from "../../lib/randerBlock";
-import Layout from "../../components/Layout";
+import Layout from "../../components/layout/Layout";
 import { useRouter } from "next/router";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useState } from "react";
 
-export default function Post({ page, blocks }) {
+export default function Post({ page, blocks, propPosts }) {
   // console.log(page);
   const [copied, setCopied] = useState(false);
   const router = useRouter();
@@ -19,7 +19,7 @@ export default function Post({ page, blocks }) {
   }
   return (
     <>
-      <Layout>
+      <Layout posts={propPosts}>
         <Head>
           <title>{page.properties.Name.title[0].plain_text}</title>
           <meta name="author" content="Ulugbek Nurmatov" />
@@ -125,6 +125,24 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
+  const posts = await getDatabase(databaseId);
+  // propPosts selects one above and below the current post if they exist
+  let propPosts = [];
+  for (let i = 0; i < posts.length; i++) {
+    if (posts[i].id === context.params.id && posts.length > 2) {
+      if (i == 0) {
+        propPosts.push(posts[i + 1]);
+        propPosts.push(posts[i + 2]);
+      } else if (i == posts.length - 1) {
+        propPosts.push(posts[i - 1]);
+        propPosts.push(posts[i - 2]);
+      } else {
+        propPosts.push(posts[i - 1]);
+        propPosts.push(posts[i + 1]);
+      }
+    } else if (posts[i].id === context.params.id && !posts.length > 2)
+      propPosts = null;
+  }
   const { id } = context.params;
   const page = await getPage(id);
   const blocks = await getBlocks(id);
@@ -155,6 +173,7 @@ export const getStaticProps = async (context) => {
     props: {
       page,
       blocks: blocksWithChildren,
+      propPosts,
     },
     revalidate: 1,
   };

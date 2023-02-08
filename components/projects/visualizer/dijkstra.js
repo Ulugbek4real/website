@@ -20,7 +20,6 @@ export function dijkstra(grid, startNode, finishNode) {
     updateUnvisitedNeighbors(closestNode, grid);
   }
 }
-
 function sortNodesByDistance(unvisitedNodes) {
   unvisitedNodes.sort((nodeA, nodeB) => nodeA.distance - nodeB.distance);
 }
@@ -41,7 +40,6 @@ function getUnvisitedNeighbors(node, grid) {
   if (row < grid.length - 1) neighbors.push(grid[row + 1][col]);
   if (col > 0) neighbors.push(grid[row][col - 1]);
   if (col < grid[0].length - 1) neighbors.push(grid[row][col + 1]);
-  console.log(neighbors);
   return neighbors.filter((neighbor) => !neighbor.isVisited);
 }
 

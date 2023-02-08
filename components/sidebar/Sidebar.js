@@ -1,6 +1,6 @@
-import myProf from "../public/myProf.jpg";
-import myLogo from "../public/my-logo.png";
-import myLogoDark from "../public/logo-dark.png";
+import myProf from "../../public/myProf.jpg";
+import myLogo from "../../public/my-logo.png";
+import myLogoDark from "../../public/logo-dark.png";
 import { MdAlternateEmail } from "react-icons/md";
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 import { IoMdHome } from "react-icons/io";
@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import Contact from "./Contact";
+import Contact from "../contact/Contact";
 
 const Sidebar = () => {
   const { theme, systemTheme, setTheme } = useTheme();
