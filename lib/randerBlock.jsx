@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const renderBlock = (block) => {
   const { type, id } = block;
@@ -66,8 +67,15 @@ export const renderBlock = (block) => {
         value.type === "external" ? value.external.url : value.file.url;
       const caption = value.caption ? value.caption[0]?.plain_text : "";
       return (
-        <figure className="my-8">
-          <img src={src} alt={caption} />
+        <figure className="my-8 ">
+          {/* <img src={src} alt={caption} /> */}
+          <Image
+            priority
+            src={src}
+            alt={`${caption ? caption : "post image"}`}
+            width={700}
+            height={300}
+          />
           {caption && (
             <figcaption className="text-gray-500">{caption}</figcaption>
           )}
