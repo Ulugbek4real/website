@@ -44,12 +44,12 @@ export const Contact = ({
         }}
         className={`${
           !isContactHidden ? "block" : "hidden"
-        }   backdrop-blur-sm bg-black/50 fixed top-0 left-0 w-full h-full z-10 `}
+        }   backdrop-blur-sm bg-black/50 fixed top-0 left-0  w-full h-full z-10 `}
       ></div>
       <div
         className={`${
           !isContactHidden ? "bottom-0" : "-bottom-full"
-        } transition-all duration-300 fixed  z-50  w-full  bg-white dark:bg-dark2`}
+        } transition-all duration-300 fixed left-0  z-50  w-full  bg-white dark:bg-dark2`}
       >
         <div className="form-container max-w-xl mx-auto my-0 h-full">
           <div className="form-box flex flex-col gap-10 px-6 py-8 h-full">
