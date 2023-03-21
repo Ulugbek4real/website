@@ -70,11 +70,12 @@ export const renderBlock = (block) => {
         <figure className="my-8 ">
           {/* <img src={src} alt={caption} /> */}
           <Image
+            className="w-full"
             priority
             src={src}
             alt={`${caption ? caption : "post image"}`}
             width={700}
-            height={300}
+            height={700}
           />
           {caption && (
             <figcaption className="text-gray-500">{caption}</figcaption>
