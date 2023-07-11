@@ -1,12 +1,6 @@
 import Layout from "../../components/layout/Layout";
 import Link from "../../components/links/Link";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaTelegram,
-  FaInstagram,
-  FaTwitterSquare,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTelegram, FaInstagram, FaTwitterSquare } from "react-icons/fa";
 import { GiPunch } from "react-icons/gi";
 
 import Head from "next/head";
@@ -54,6 +48,12 @@ const Links = () => {
           url="https://www.instagram.com/bjj_ground/"
           text="Jiu-jitsu Ground"
           icon=<GiPunch className=" dark:text-neutral-100 text-2xl platform-icon" />
+        />
+        <Link
+          name="Threads"
+          url="https://www.threads.net/@ulugbek4real"
+          text="@ulugbek4real"
+          icon=<FaInstagram className=" dark:text-neutral-100 text-2xl platform-icon" />
         />
         <Link
           name="TWITTER"
