@@ -32,11 +32,7 @@ const Topbar = () => {
             />
           )}
           <h1 className=" text-2xl sm:text-3xl font-bold">
-            {onLinksPage
-              ? "Ulugbek's Links"
-              : onProjectsPage
-              ? "Featured Projects"
-              : "Ulugbek Nurmatov"}
+            {onLinksPage ? "Ulugbek's Links" : onProjectsPage ? "Featured Projects" : "Ulugbek Nurmatov"}
           </h1>
         </div>
         <div className=" cursor-pointer w-10 h-10 flex justify-center items-center  hover:bg-stone-100 dark:hover:bg-neutral-800 active:bg-stone-200 dark:active:bg-neutral-600 rounded-full text-stone-500  dark:text-neutral-100 text-2xl">
@@ -54,7 +50,7 @@ const Topbar = () => {
         >
           Blog
         </Link>
-        <Link
+        {/* <Link
           className={`${
             router.pathname == "/projects"
               ? "border-b border-black  dark:border-white text-black  dark:text-white"
@@ -63,7 +59,7 @@ const Topbar = () => {
           href="/projects"
         >
           Projects
-        </Link>
+        </Link> */}
         <Link
           className={`${
             router.pathname == "/links"
