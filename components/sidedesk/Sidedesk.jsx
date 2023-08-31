@@ -1,11 +1,6 @@
 import myProf from "../../public/myProf.jpg";
 import Link from "next/link";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaInstagram,
-  FaTwitterSquare,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaTwitterSquare, FaTelegram } from "react-icons/fa";
 import Image from "next/image";
 import { TbBrandTelegram } from "react-icons/tb";
 import Story from "./Story";
@@ -21,7 +16,7 @@ export default function Sidedesk({ posts }) {
           Contact Me
         </a>
         <a
-          href="https://t.me/ulugbekChannel"
+          href="https://t.me/ulugbek4real_blog"
           target="_blank"
           className="cursor-pointer box-search h-9 border-stone-200 border rounded-3xl hover:bg-link-bg hover:border-link-border dark:border-neutral-600 dark:hover:bg-link-bg-dark dark:hover:border-yellow-100 text-neutral-700 dark:text-white flex justify-between px-4 items-center "
         >
@@ -32,15 +27,9 @@ export default function Sidedesk({ posts }) {
       {!posts && (
         <div className="w-4/5 mt-10 mx-auto mb-4 flex flex-col gap-4">
           <div className="box-profile flex gap-2 ">
-            <Image
-              className=" w-16 h-16 object-cover rounded-full"
-              src={myProf}
-              alt="Ulugbek Nurmatov profile image"
-            />
+            <Image className=" w-16 h-16 object-cover rounded-full" src={myProf} alt="Ulugbek Nurmatov profile image" />
             <div className="box-profile-info flex flex-col justify-center ml-3">
-              <span className="box-profile-info-name font-semibold">
-                Ulugbek Nurmatov
-              </span>
+              <span className="box-profile-info-name font-semibold">Ulugbek Nurmatov</span>
               <span className="box-profile-info-status text-sm text-stone-500 dark:text-neutral-400">
                 Software Engineer
               </span>
@@ -48,8 +37,8 @@ export default function Sidedesk({ posts }) {
           </div>
           <div className="box-information">
             <p className="box-text text-sm text-stone-500 dark:text-neutral-400">
-              I'm a full-stack Software Engineer based in Seoul, South Korea.
-              Here you'll find my personal blog posts and case studies.
+              I'm a full-stack Software Engineer based in Seoul, South Korea. Here you'll find my personal blog posts
+              and case studies.
             </p>
           </div>
         </div>
@@ -67,17 +56,15 @@ export default function Sidedesk({ posts }) {
 
         <div className="social-media flex justify-between items-center">
           <div className="social-right flex items-center gap-6">
-            <FaGithub className="github-icon text-2xl" />
+            <FaTelegram className="twitter-icon text-2xl  text-sky-500" />
             <div className="media-box flex flex-col gap-0">
-              <span>GitHub</span>
-              <span className="followers text-xs font-medium text-stone-400">
-                repositories
-              </span>
+              <span>Telegram</span>
+              <span className="followers text-xs font-medium text-stone-400">Shaxsiy uchun</span>
             </div>
           </div>
           <a
             className="media-link rounded-3xl text-xs border dark:border-neutral-600 dark:hover:bg-link-bg-dark dark:hover:border-yellow-100 py-2 px-4 hover:bg-link-bg hover:border-link-border text-inherit"
-            href="https://github.com/Ulugbek4real"
+            href="https://t.me/ulugbek4real"
             target="_blank"
           >
             Follow
@@ -88,9 +75,7 @@ export default function Sidedesk({ posts }) {
             <FaLinkedin className="linkedin-icon text-2xl text-sky-700" />
             <div className="media-box flex flex-col gap-0">
               <span>LinkedIn</span>
-              <span className="followers text-xs font-medium text-stone-400">
-                connections
-              </span>
+              <span className="followers text-xs font-medium text-stone-400">connections</span>
             </div>
           </div>
           <a
@@ -106,9 +91,7 @@ export default function Sidedesk({ posts }) {
             <FaInstagram className="instagram-icon text-2xl text-pink-600" />
             <div className="media-box flex flex-col gap-0">
               <span>Instagram</span>
-              <span className="followers text-xs font-medium text-stone-400">
-                friends
-              </span>
+              <span className="followers text-xs font-medium text-stone-400">friends</span>
             </div>
           </div>
           <a
@@ -124,9 +107,7 @@ export default function Sidedesk({ posts }) {
             <FaTwitterSquare className="twitter-icon text-2xl  text-sky-500" />
             <div className="media-box flex flex-col gap-0">
               <span>Twitter</span>
-              <span className="followers text-xs font-medium text-stone-400">
-                friends
-              </span>
+              <span className="followers text-xs font-medium text-stone-400">friends</span>
             </div>
           </div>
           <a

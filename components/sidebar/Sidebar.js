@@ -44,11 +44,7 @@ const Sidebar = () => {
           <HiOutlineMoon />
         </div>
       ) : (
-        <Image
-          className="  w-8 h-8 rounded-full"
-          src={myLogoDark}
-          alt="myLogo"
-        />
+        <Image className="  w-8 h-8 rounded-full" src={myLogoDark} alt="myLogo" />
       );
     }
   };
@@ -82,14 +78,10 @@ const Sidebar = () => {
             className=" w-10 h-10 flex justify-center items-center text-2xl hover:bg-stone-100 dark:hover:bg-neutral-800 active:bg-stone-200 dark:active:bg-neutral-600 rounded-full text-black dark:text-neutral-100"
             href="/"
           >
-            {router.pathname === "/" ? (
-              <IoMdHome className="text-black dark:text-neutral-100" />
-            ) : (
-              <MdOutlineHome />
-            )}
+            {router.pathname === "/" ? <IoMdHome className="text-black dark:text-neutral-100" /> : <MdOutlineHome />}
           </Link>
           <a
-            href="https://t.me/ulugbekChannel"
+            href="https://t.me/ulugbek4real_blog"
             target="_blank"
             className=" cursor-pointer w-10 h-10 flex justify-center items-center text-2xl hover:bg-stone-100 dark:hover:bg-neutral-800 active:bg-stone-200 dark:active:bg-neutral-600 rounded-full text-stone-500  dark:text-neutral-100"
           >
@@ -104,11 +96,7 @@ const Sidebar = () => {
           {changeTheme("icon")}
         </div>
         <div className="hidden lg:inline">
-          <Image
-            className="w-8 h-8 object-cover rounded-full"
-            src={myProf}
-            alt="Ulugbek Nurmatov' profile photo"
-          />
+          <Image className="w-8 h-8 object-cover rounded-full" src={myProf} alt="Ulugbek Nurmatov' profile photo" />
         </div>
       </div>
       <Contact

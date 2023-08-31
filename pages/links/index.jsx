@@ -2,6 +2,8 @@ import Layout from "../../components/layout/Layout";
 import Link from "../../components/links/Link";
 import { FaGithub, FaLinkedin, FaTelegram, FaInstagram, FaTwitterSquare } from "react-icons/fa";
 import { GiPunch } from "react-icons/gi";
+import Image from "next/image";
+import UzAnalitikaLogo from "../../public/Uzanalitika_logo.svg";
 
 import Head from "next/head";
 
@@ -25,47 +27,61 @@ const Links = () => {
       </Head>
 
       <main className="mt-12 max-w-3xl w-full px-4 flex flex-col gap-4 my-0 mx-auto">
-        <Link
+        {/* <Link
           name="GITHUB"
           url="https://github.com/Ulugbek4real"
           text="My open-source projects"
           icon=<FaGithub className=" dark:text-neutral-100 text-2xl platform-icon" />
+        /> */}
+        <Link
+          name="UzAnalitika"
+          url="https://uzanalitika.uz"
+          text="Uzum uchun mukammal analitika"
+          icon={
+            <Image
+              className=" dark:text-neutral-100 text-2xl platform-icon"
+              src={UzAnalitikaLogo}
+              alt="UzAnalitika logo"
+              width={32}
+              height={32}
+            />
+          }
         />
         <Link
           name="LINKEDIN"
           url="https://www.linkedin.com/in/ulugbek4real/"
           text="My professional profile"
-          icon=<FaLinkedin className=" dark:text-neutral-100 text-2xl platform-icon" />
+          icon={<FaLinkedin className=" dark:text-neutral-100 text-2xl platform-icon" />}
         />
         <Link
           name="INSTAGRAM"
           url="https://www.instagram.com/ulugbek4real/"
           text="@ulugbek4real"
-          icon=<FaInstagram className=" dark:text-neutral-100 text-2xl platform-icon" />
+          icon={<FaInstagram className=" dark:text-neutral-100 text-2xl platform-icon" />}
         />
         <Link
           name="JIU-JITSU"
           url="https://www.instagram.com/bjj_ground/"
           text="Jiu-jitsu Ground"
-          icon=<GiPunch className=" dark:text-neutral-100 text-2xl platform-icon" />
+          icon={<GiPunch className=" dark:text-neutral-100 text-2xl platform-icon" />}
         />
-        <Link
+        {/* <Link
           name="Threads"
           url="https://www.threads.net/@ulugbek4real"
           text="@ulugbek4real"
-          icon=<FaInstagram className=" dark:text-neutral-100 text-2xl platform-icon" />
-        />
+          icon={<FaInstagram className=" dark:text-neutral-100 text-2xl platform-icon" />}
+        /> */}
         <Link
           name="TWITTER"
           url="https://twitter.com/ulugbek4real"
           text="@ulugbek4real"
-          icon=<FaTwitterSquare className=" dark:text-neutral-100 text-2xl platform-icon" />
+          icon={<FaTwitterSquare className=" dark:text-neutral-100 text-2xl platform-icon" />}
         />
         <Link
           name="TELEGRAM"
           url="https://t.me/ulugbek4real"
           text="@ulugbek4real"
-          icon=<FaTelegram className=" dark:text-neutral-100 text-2xl platform-icon" />
+          icon={<FaTelegram className=" dark:text-neutral-100 text-2xl platform-icon" />}
         />
       </main>
     </Layout>

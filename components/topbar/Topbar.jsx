@@ -5,12 +5,15 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import myProfile from "../../public/myProf.jpg";
 import { FaSlackHash } from "react-icons/fa";
+import React from "react";
+import { FaGithub, FaLinkedin, FaInstagram, FaTwitterSquare, FaTelegram } from "react-icons/fa";
 
 const Topbar = () => {
   const router = useRouter();
   const onPostPage = router.pathname.split("/")[1] == "posts";
   const onLinksPage = router.pathname.split("/")[1] == "links";
   const onProjectsPage = router.pathname.split("/")[1] == "projects";
+  const [showText, setShowText] = React.useState(false);
 
   return (
     <div
@@ -35,10 +38,35 @@ const Topbar = () => {
             {onLinksPage ? "Ulugbek's Links" : onProjectsPage ? "Featured Projects" : "Ulugbek Nurmatov"}
           </h1>
         </div>
-        <div className=" cursor-pointer w-10 h-10 flex justify-center items-center  hover:bg-stone-100 dark:hover:bg-neutral-800 active:bg-stone-200 dark:active:bg-neutral-600 rounded-full text-stone-500  dark:text-neutral-100 text-2xl">
+        <div
+          onClick={() => setShowText(!showText)}
+          className=" cursor-pointer w-10 h-10 flex justify-center items-center  hover:bg-stone-100 dark:hover:bg-neutral-800 active:bg-stone-200 dark:active:bg-neutral-600 rounded-full text-stone-500  dark:text-neutral-100 text-2xl"
+        >
           <BiDotsHorizontalRounded />
         </div>
       </div>
+      {showText && (
+        <div className="sm:hidden flex flex-col gap-2">
+          <p className="text-stone-500 text-sm  ">
+            I'm a full-stack Software Engineer based in Seoul, South Korea. Here you'll find my personal blog posts and
+            case studies.
+          </p>
+          <div className="flex gap-2 ">
+            <a href="https://instagram.com/ulugbek4real" target="_blank">
+              <FaInstagram className="instagram-icon text-2xl text-pink-600" />
+            </a>
+            <a href="https://t.me/ulugbek4real_blog" target="_blank">
+              <FaTelegram className="twitter-icon text-2xl  text-sky-500" />
+            </a>
+            <a href="https://www.linkedin.com/in/ulugbek4real/" target="_blank">
+              <FaLinkedin className="linkedin-icon text-2xl text-sky-700" />
+            </a>
+            <a href="https://twitter.com/ulugbek4real" target="_blank">
+              <FaTwitterSquare className="twitter-icon text-2xl  text-sky-500" />
+            </a>
+          </div>
+        </div>
+      )}
       <div className=" text-sm h-full flex gap-8 text-stone-400 border-b  dark:border-neutral-700 border-gray-200 topbar-nav">
         <Link
           href="/"
