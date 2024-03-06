@@ -26,17 +26,10 @@ export default function Post({ page, blocks, propPosts }) {
           <meta property="og:site_name" content="Ulugbek's blog" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-          <meta
-            name="description"
-            content={page.properties.Description.rich_text[0].plain_text}
-          />
+          <meta name="description" content={page.properties.Description.rich_text[0].plain_text} />
           <meta
             property="og:image"
-            content={
-              page.cover.type === "external"
-                ? page.cover.external["url"]
-                : page.cover.file["url"]
-            }
+            content={page.cover.type === "external" ? page.cover.external["url"] : page.cover.file["url"]}
           />
 
           <link rel="icon" href="/logoPng.png" />
@@ -60,16 +53,13 @@ export default function Post({ page, blocks, propPosts }) {
                       year: "numeric",
                     })}
                   </span>
-                  <span className="hidden sm:inline">
-                    {" "}
-                    • {page.properties.Duration.rich_text[0].plain_text}
-                  </span>
+                  <span className="hidden sm:inline"> • {page.properties.Duration.rich_text[0].plain_text}</span>
                 </div>
               </div>
             </div>
             {/* <BiDotsHorizontalRounded className=" text-2xl text-gray-500 nav-icon"/> */}
             <CopyToClipboard
-              text={`https://ulugbek4real.com${router.asPath}`}
+              text={`https://ulugbek4real.uz${router.asPath}`}
               onCopy={() => {
                 setCopied(true);
                 setTimeout(() => {
@@ -140,8 +130,7 @@ export const getStaticProps = async (context) => {
         propPosts.push(posts[i - 1]);
         propPosts.push(posts[i + 1]);
       }
-    } else if (posts[i].id === context.params.id && !posts.length > 2)
-      propPosts = null;
+    } else if (posts[i].id === context.params.id && !posts.length > 2) propPosts = null;
   }
   const { id } = context.params;
   const page = await getPage(id);
@@ -162,9 +151,7 @@ export const getStaticProps = async (context) => {
   const blocksWithChildren = blocks.map((block) => {
     // Add child blocks if the block should contain children but none exists
     if (block.has_children && !block[block.type].children) {
-      block[block.type]["children"] = childBlocks.find(
-        (x) => x.id === block.id
-      )?.children;
+      block[block.type]["children"] = childBlocks.find((x) => x.id === block.id)?.children;
     }
     return block;
   });

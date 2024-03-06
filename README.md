@@ -1,4 +1,4 @@
-**Visit here:** [https://ulugbek4real.com](https://ulugbek4real.com)
+**Visit here:** [https://ulugbek4real.uz](https://ulugbek4real.uz)
 
 This is a [Next.js](https://nextjs.org/) app using [Notions Public API](https://developers.notion.com).
 

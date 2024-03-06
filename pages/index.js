@@ -23,7 +23,7 @@ export default function Home({ posts }) {
           />
           <meta
             name="og:image"
-            content="https://ulugbek4real.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FmyProf.66dc75d2.jpg&w=2048&q=75"
+            content="https://ulugbek4real.uz/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FmyProf.66dc75d2.jpg&w=2048&q=75"
           />
 
           <link rel="icon" href="/logoPng.png" />
